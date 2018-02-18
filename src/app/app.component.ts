@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     title = 'app';
     n = 0;
     clicked = false;

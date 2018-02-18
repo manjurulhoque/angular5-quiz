@@ -1,18 +1,48 @@
-<!-- <h3>Questions:</h3>
+<div class="row">
+    <div class="col-xs-8">
+        <h2>Progress:</h2>
+        <div class="btn-toolbar">
+            <button class="btn" [ngClass]="{'btn-info': result.rightorwrong, 'btn-danger': !result.rightorwrong}" *ngFor="let result of results">
+                <span class="glyphicon" [ngClass]="{'glyphicon-pencil': result.rightorwrong, 'glyphicon-question-sign': !result.rightorwrong}">
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="row">
+            <h4>Legend:</h4>
+            <div class="col-sm-4">
+                <button class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <p>Answered</p>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-danger">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                </button>
+                <p>Unanswered</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Answers:</h3>
 <div class="well well-sm">
     <div class="row">
         <div class="col-xs-12">
-            <h4>{{ results[n]['question'] }}</h4>
+            <h4>{{ results[n]['question']['question'] }}</h4>
             <div class="row">
                 <div class="col-sm-6" *ngFor="let answer of current; let i = index">
-                    <h4 class="answer" (click)="onClick(i)" [ngClass]="{'bg-success': clicked && answered == (i)}">
+                    <h4 class="answer">
                         {{answer}}
-                        <p class="pull-right">Your Answer</p>
-                        <p class="pull-right">Correct Answer</p>
+                        <p class="pull-right" *ngIf="i === myanswer && myanswer+1 !== correct">Your Answer</p>
+                        <p class="pull-right" *ngIf="i == correct-1 && myanswer+1 !== correct">Correct Answer</p>
+                        <p class="pull-right" *ngIf="myanswer+1 == correct && i === myanswer">Correct Answer</p>
                     </h4>
                 </div>
                 <button class="btn btn-success" *ngIf="n != results.length" (click)="next()">Next</button>
             </div>
         </div>
     </div>
-</div> -->
+</div>
