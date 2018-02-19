@@ -9,20 +9,19 @@ export class ResultComponent implements OnInit {
 
     @Input() results = [];
     n = 0;
-    clicked = false;
-    resultActive = false;
-    answered = 0;
     current: any[];
-    disabled: true;
     myanswer: number;
     correct: number;
     rightorwrong: number;
-    constructor() {
-
-    }
+    totalCorrect = 0;
+    constructor() {}
 
     ngOnInit() {
-        console.log(this.results);
+        for(let i = 0; i < this.results.length; i++){
+            if(this.results[i].rightorwrong === 1){
+                this.totalCorrect += 1;
+            }
+        }
         this.correct = this.results[this.n]['correct'];
         this.myanswer = this.results[this.n]['myanswer'];
         this.rightorwrong = this.results[this.n]['rightorwrong'];
@@ -36,5 +35,4 @@ export class ResultComponent implements OnInit {
         this.myanswer = this.results[this.n]['myanswer'];
         this.rightorwrong = this.results[this.n]['rightorwrong'];
     }
-
 }

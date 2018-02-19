@@ -30,7 +30,7 @@
 <div class="row" *ngIf="n == questions.length; then showAnswer; else showQuestions"></div>
 
 <ng-template #showQuestions>
-    <h3>Questions:</h3>
+    <h3>Questions: {{ (n+1) }}/{{questions.length}}</h3>
     <div class="well well-sm">
         <div class="row">
             <div class="col-xs-12">
@@ -57,13 +57,3 @@
 <div class="row" *ngIf="resultActive">
     <app-result [results]="results"></app-result>
 </div>
-
-<!-- <div class="row" ng-if="results.dataService.quizQuestions[results.activeQuestion].type === 'text'">
-    <div class="col-sm-6" ng-repeat="answer in results.dataService.quizQuestions[results.activeQuestion].possibilities">
-        <h4 class="answer" ng-class="results.getAnswerClass($index)">
-            {{answer.answer}}
-            <p class="pull-right" ng-show="$index !== results.quizMetrics.correctAnswers[results.activeQuestion] && $index === results.dataService.quizQuestions[results.activeQuestion].selected">Your Answer</p>
-            <p class="pull-right" ng-show="$index === results.quizMetrics.correctAnswers[results.activeQuestion]">Correct Answer</p>
-        </h4>
-    </div>
-</div> -->
